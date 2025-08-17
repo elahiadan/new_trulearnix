@@ -1,1 +1,1 @@
-@include('vendors::vendor.datatable', ['route' => route('vendors.show', ['id' => $id])])
+@include('admin.vendor.datatable', ['route' => route('vendors.show', ['id' => $id])])

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('establishment_year')->nullable();
             $table->text('about')->nullable();
             $table->string('business_type')->nullable();
-            $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
+            $table->tinyInteger('status')->nullable()->unsigned()->comment('1 => Active 2 => InActive');
             $table->string('image')->nullable();
             $table->string('street')->nullable();
             $table->string('city')->nullable();
@@ -29,11 +29,12 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->tinyInteger('is_admin')->comment('1 => Admin 2 => Vendor');
+            $table->string('referral_code')->unique()->nullable();
+            $table->unsignedBigInteger('referred_by')->nullable();
+            $table->integer('reward_points')->default(0);
+            $table->string('currency', 3)->default('INR');
             $table->rememberToken();
             $table->timestamps();
-
-            
-            $table->tinyInteger('status_id')->nullable()->unsigned()->comment('1 => Active 2 => InActive');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

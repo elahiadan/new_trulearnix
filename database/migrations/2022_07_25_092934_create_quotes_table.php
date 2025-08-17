@@ -19,10 +19,9 @@ return new class extends Migration
             $table->bigInteger('product_id')->unsigned()->nullable();
             $table->text('url')->nullable();
             $table->text('description')->nullable();
-            $table->tinyInteger('status_id')->default(1)->comment('1 => New 2 => Junk 3 => Contacted');
+            $table->tinyInteger('status')->default(1)->comment('1 => New 2 => Junk 3 => Contacted');
             $table->timestamps();
-            
-            
+
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }

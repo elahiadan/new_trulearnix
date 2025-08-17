@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="description" content="Spotlyf Admin">
-    <title>@yield('title') - Brass World | Admin</title>
+    <title>@yield('title') - TruLearnix | Admin</title>
 
     <link rel="icon" type="image/x-icon" href="{{ url('images/logos', get_setting('site_favicon')) }}">
 

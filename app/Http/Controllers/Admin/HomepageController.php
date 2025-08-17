@@ -12,20 +12,17 @@ use Illuminate\Contracts\Support\Renderable;
 
 class HomepageController extends Controller
 {
-
     public function index()
     {
-        return view('homepage::homepage.homepage');
+        return view('admin.homepage.homepage');
     }
-
 
     public function create()
     {
-        $products = Product::where('status_id', 1)->latest()->get();
+        $products = Product::where('status', 1)->latest()->get();
 
-        return view('homepage::homepage.add-homepage', compact('products'));
+        return view('admin.homepage.add-homepage', compact('products'));
     }
-
 
     public function store(Request $request)
     {
@@ -36,7 +33,7 @@ class HomepageController extends Controller
         $user->title = $data['title'];
         $user->link = $data['link'];
         $user->view_type  = $data['view_type'];
-        $user->status_id  = $data['status'];
+        $user->status  = $data['status'];
         $user->save();
 
         foreach ($data['product'] as $product) {
@@ -49,7 +46,6 @@ class HomepageController extends Controller
 
         return redirect(route('homepages'));
     }
-
 
     public function show()
     {
@@ -65,8 +61,8 @@ class HomepageController extends Controller
 
             ->editColumn('status', function ($raw) {
                 return '<select onchange="changeStatus(' . $raw->id . ', this)" class="badge badge-glow badge-primary">
-                <option ' . ($raw->status_id == 1 ? "selected" : "") . ' value="1"> Active </option>
-                <option ' . ($raw->status_id == 2 ? "selected" : "") . ' value="2"> InActive </option>
+                <option ' . ($raw->status == 1 ? "selected" : "") . ' value="1"> Active </option>
+                <option ' . ($raw->status == 2 ? "selected" : "") . ' value="2"> InActive </option>
             </select>';
             })
 
@@ -74,12 +70,10 @@ class HomepageController extends Controller
             ->make(true);
     }
 
-
     public function edit($id)
     {
-        return view('homepage::edit');
+        return view('admin.edit');
     }
-
 
     public function update(Request $request)
     {
@@ -89,12 +83,12 @@ class HomepageController extends Controller
 
         $user->title = $data['title'];
         $user->link = $data['link'];
-        $user->view_type  = $data['view_type'];
-        $user->status_id  = $data['status'];
+        // $user->view_type  = $data['view_type'];
+        $user->status  = $data['status'];
         $user->save();
 
 
-        HomeProducts::where('homepage_id',$data['id'])->delete();
+        HomeProducts::where('homepage_id', $data['id'])->delete();
         foreach ($data['product'] as $product) {
 
             $pro = new HomeProducts();
@@ -105,7 +99,6 @@ class HomepageController extends Controller
 
         return redirect()->back();
     }
-
 
     public function destroy(Request $request)
     {
@@ -123,14 +116,13 @@ class HomepageController extends Controller
             $query->with(['product']);
         }])->where('id', $id)->first();
 
-        $status = $product->status_id;
+        $status = $product->status;
 
-        $allproducts = Product::where('status_id', 1)->latest()->get();
+        $allproducts = Product::where('status', 1)->latest()->get();
         $ids = $product->homeproducts->pluck('product_id')->toArray();
 
-        return view('homepage::homepage.view-homepage', compact('product','ids','allproducts','status'));
+        return view('admin.homepage.view-homepage', compact('product', 'ids', 'allproducts', 'status'));
     }
-
 
     public function uploadImage(Request $request)
     {
@@ -149,10 +141,8 @@ class HomepageController extends Controller
     public function changestatus(Request $request)
     {
         $status = Homepage::where('id', $request->id)->first();
-        $status->status_id = $request->status;
+        $status->status = $request->status;
         $status->save();
         return redirect()->back();
     }
-
-    
 }

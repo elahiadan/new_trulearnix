@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('key')->nullable();
             $table->text('value')->nullable();
-            $table->tinyInteger('status_id')->default(1)->unsigned()->comment('1 => Active 2 => InActive');
-            $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
+            $table->tinyInteger('status')->default(1)->unsigned()->comment('1 => Active 2 => InActive');
             $table->timestamps();
         });
     }

@@ -1,6 +1,6 @@
 <div class="modal fade text-left" id="edit-product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myModalLabel">Edit product</h4>
@@ -18,8 +18,7 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group mb-2">
                                 <label for="title">Title</label>
-                                <input name="title" type="text" id="title" class="form-control"
-                                    value="{{ $product->title }}" required />
+                                <input name="title" type="text" id="title" class="form-control" value="{{ $product->title }}" required />
                             </div>
                         </div>
 
@@ -35,12 +34,10 @@
                                 <label for="product">Product</label>
                                 <select name="product[]"
                                     class="select2 form-control form-control-lg select2-hidden-accessible"
-                                     required multiple>
+                                    required multiple>
                                     <option value=""></option>
                                     @foreach ($allproducts as $product)
-                                        <option value="{{ $product->id }}"
-                                            {{ in_array($product->id, $ids) ? 'selected' : '' }}>
-                                            {{ $product->name }}</option>
+                                    <option value="{{ $product->id }}" {{ in_array($product->id, $ids) ? 'selected' : '' }}>{{ $product->title }}</option>
                                     @endforeach
                                 </select>
                             </div>

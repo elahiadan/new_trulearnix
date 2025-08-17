@@ -6,28 +6,24 @@ use App\Models\Quote;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Contracts\Support\Renderable;
 
 class QuotesController extends Controller
 {
     public function index(Request $request)
     {
         $id = $request->id;
-        return view('quotes::quote.quotes', compact('id'));
+        return view('admin.quote.quotes', compact('id'));
     }
-
 
     public function create()
     {
-        return view('quotes::create');
+        return view('admin.create');
     }
-
 
     public function store(Request $request)
     {
         //
     }
-
 
     public function show(Request $request)
     {
@@ -35,7 +31,7 @@ class QuotesController extends Controller
             ->leftJoin('products', 'products.id', 'quotes.product_id')
             ->leftJoin('vendors', 'vendors.id', 'products.vendor_id');
 
-        $data = $query->where('quotes.status_id', $request->id)->get();
+        $data = $query->where('quotes.status', $request->id)->get();
 
         return DataTables::of($data)
 
@@ -43,9 +39,9 @@ class QuotesController extends Controller
 
             ->addColumn('status', '
             <select onchange="changeStatus({{$id}}, this)"  class="badge badge-glow badge-primary">
-            <option {{$status_id==1 ? "selected":""}} value="1"> New </option>
-            <option {{$status_id==2 ? "selected":""}} value="2"> Junk </option>
-            <option {{$status_id==3 ? "selected":""}} value="3"> Contacted </option>
+            <option {{$status==1 ? "selected":""}} value="1"> New </option>
+            <option {{$status==2 ? "selected":""}} value="2"> Junk </option>
+            <option {{$status==3 ? "selected":""}} value="3"> Contacted </option>
             </select>')
 
             ->rawColumns(['action', 'status'])
@@ -58,7 +54,7 @@ class QuotesController extends Controller
             ->leftJoin('products', 'products.id', 'quotes.product_id')
             ->leftJoin('vendors', 'vendors.id', 'products.vendor_id');
 
-        $data = $query->where('status_id', 2)->get();
+        $data = $query->where('status', 2)->get();
 
         return DataTables::of($data)
 
@@ -66,9 +62,9 @@ class QuotesController extends Controller
 
             ->addColumn('status', '
             <select onchange="changeStatus({{$id}}, this)"  class="badge badge-glow badge-primary">
-            <option {{$status_id==1 ? "selected":""}} value="1"> New </option>
-            <option {{$status_id==2 ? "selected":""}} value="2"> Junk </option>
-            <option {{$status_id==3 ? "selected":""}} value="3"> Contacted </option>
+            <option {{$status==1 ? "selected":""}} value="1"> New </option>
+            <option {{$status==2 ? "selected":""}} value="2"> Junk </option>
+            <option {{$status==3 ? "selected":""}} value="3"> Contacted </option>
             </select>')
 
             ->rawColumns(['action', 'status'])
@@ -81,7 +77,7 @@ class QuotesController extends Controller
             ->leftJoin('products', 'products.id', 'quotes.product_id')
             ->leftJoin('vendors', 'vendors.id', 'products.vendor_id');
 
-        $data = $query->where('status_id', 3)->get();
+        $data = $query->where('status', 3)->get();
 
         return DataTables::of($data)
 
@@ -89,9 +85,9 @@ class QuotesController extends Controller
 
             ->addColumn('status', '
             <select onchange="changeStatus({{$id}}, this)"  class="badge badge-glow badge-primary">
-            <option {{$status_id==1 ? "selected":""}} value="1"> New </option>
-            <option {{$status_id==2 ? "selected":""}} value="2"> Junk </option>
-            <option {{$status_id==3 ? "selected":""}} value="3"> Contacted </option>
+            <option {{$status==1 ? "selected":""}} value="1"> New </option>
+            <option {{$status==2 ? "selected":""}} value="2"> Junk </option>
+            <option {{$status==3 ? "selected":""}} value="3"> Contacted </option>
             </select>')
 
             ->rawColumns(['action', 'status'])
@@ -101,9 +97,8 @@ class QuotesController extends Controller
 
     public function edit($id)
     {
-        return view('quotes::edit');
+        return view('admin.edit');
     }
-
 
     public function update(Request $request, $id)
     {
@@ -123,7 +118,7 @@ class QuotesController extends Controller
     public function changestatus(Request $request)
     {
         $status = Quote::where('id', $request->id)->first();
-        $status->status_id = $request->status;
+        $status->status = $request->status;
         $status->save();
         return redirect()->back();
     }

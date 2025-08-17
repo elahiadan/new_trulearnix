@@ -2,15 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Home;
+use App\Models\Homepage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use Modules\Admin\Entities\Contact;
-use Modules\Admin\Entities\Newsletter;
-use Modules\Admin\Entities\Recaptcha;
-use Modules\Admin\Entities\Seo;
-use Modules\Admin\Entities\WebsitePage;
-use Modules\Homepage\Entities\Homepage;
 
 class HomeController extends Controller
 {
@@ -31,7 +24,7 @@ class HomeController extends Controller
     {
         $products = Homepage::with(['homeproducts' => function ($query) {
             $query->with(['product']);
-        }])->where('status_id', 1)->get();
+        }])->where('status', 1)->get();
 
         return view('welcome', compact('products'));
     }

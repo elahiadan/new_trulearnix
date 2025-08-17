@@ -20,7 +20,7 @@ class CmsPageSeeder extends Seeder
             'title' => 'Terms and Conditions',
             'description' => 'This is TC page',
             'page' => '<h2>Terms and Conditions</h2>',
-            'status_id' => 1,
+            'status' => 1,
         ]);
         Page::create([
             'slug' => 'term-services',
@@ -28,7 +28,7 @@ class CmsPageSeeder extends Seeder
             'title' => 'Term and Service',
             'description' => 'This is TS page',
             'page' => '<h2>Terms and Service</h2>',
-            'status_id' => 1,
+            'status' => 1,
         ]);
         Page::create([
             'slug' => 'refund-cancellation',
@@ -36,7 +36,7 @@ class CmsPageSeeder extends Seeder
             'title' => 'Refund and Cancellations',
             'description' => 'This is RC page',
             'page' => '<h2>Refund and Cancellations</h2>',
-            'status_id' => 1,
+            'status' => 1,
         ]);
         Page::create([
             'slug' => 'privacy-policy',
@@ -44,7 +44,7 @@ class CmsPageSeeder extends Seeder
             'title' => 'Privacy Policy',
             'description' => 'This is PP page',
             'page' => '<h2>Privacy Policy</h2>',
-            'status_id' => 1,
+            'status' => 1,
         ]);
     }
 }

@@ -22,8 +22,7 @@ return new class extends Migration
             $table->string('establishment_year')->nullable();
             $table->string('gst')->nullable();
             $table->string('business_type')->nullable();
-            $table->tinyInteger('status_id')->nullable()->unsigned()->comment('1 => Active 2 => InActive');
-            $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
+            $table->tinyInteger('status')->nullable()->unsigned()->comment('1 => Active 2 => InActive');
             $table->string('image')->nullable();
             $table->string('password');
             $table->timestamps();

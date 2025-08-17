@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Contracts\Support\Renderable;
 
 class SettingsController extends Controller
 {
@@ -16,27 +15,38 @@ class SettingsController extends Controller
 
     public function socialLogin()
     {
+        abort(404);
         return view('admin.settings.social_login');
     }
 
     public function smtp()
     {
+        abort(404);
         return view('admin.settings.smtp_settings');
     }
 
     public function payment()
     {
+        abort(404);
         return view('admin.settings.payment_method');
     }
 
     public function fileSystem()
     {
+        abort(404);
         return view('admin.settings.file_system');
     }
 
     public function featureActivate()
     {
+        abort(404);
         return view('admin.settings.feature_activate');
+    }
+
+    public function tax()
+    {
+        abort(404);
+        return view('admin.settings.tax.index');
     }
 
     public function update(Request $request)
@@ -72,7 +82,7 @@ class SettingsController extends Controller
                 } else {
                     $business_settings->value = $request[$type];
                 }
-                $business_settings->status_id = 1;
+                $business_settings->status = 1;
                 $business_settings->save();
             }
         }

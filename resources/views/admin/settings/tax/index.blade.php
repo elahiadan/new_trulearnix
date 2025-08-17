@@ -32,6 +32,9 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $all_taxes = [];
+                @endphp
                 @foreach($all_taxes as $key => $tax)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
@@ -102,7 +105,6 @@
         </div>
     </div>
     
-    @include('modals.delete_modal')
 @endsection
 
 @section('script')

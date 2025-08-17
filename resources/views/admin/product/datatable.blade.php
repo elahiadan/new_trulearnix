@@ -78,13 +78,13 @@
                         data: 'view'
                     },
                     {
-                        data: 'name'
+                        data: 'title'
                     },
                     {
-                        data: 'price_range'
+                        data: 'subtitle'
                     },
                     {
-                        data: 'vendorName'
+                        data: 'description'
                     },
                     {
                         data: 'created_at'

@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Edit Vendor</h4>
+                <h4 class="modal-title" id="myModalLabel">Edit User</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -104,8 +104,8 @@
                             <div class="form-group mb-2">
                                 <label for="status">Status</label>
                                 <select name="status" class="form-control" id="status">
-                                    <option {{ $vendor->status_id == 1 ? 'selected' : '' }} value="1">Active</option>
-                                    <option {{ $vendor->status_id == 2 ? 'selected' : '' }} value="2">InActive
+                                    <option {{ $vendor->status == 1 ? 'selected' : '' }} value="1">Active</option>
+                                    <option {{ $vendor->status == 2 ? 'selected' : '' }} value="2">InActive
                                     </option>
                                 </select>
                             </div>

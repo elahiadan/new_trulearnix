@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
-use Illuminate\Contracts\Support\Renderable;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -15,15 +15,15 @@ class VendorsController extends Controller
     {
         $id = $request->id;
 
-        return view('vendors::vendor.vendors', compact('id'));
+        return view('admin.vendor.vendors', compact('id'));
     }
 
     public function create()
     {
-        return view('vendors::vendor.add-vendor');
+        return view('admin.vendor.add-vendor');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, UserService $userService)
     {
         $request->validate([
             'email' => 'required|email|max:255',
@@ -31,25 +31,9 @@ class VendorsController extends Controller
             'password' => 'required|string|min:8|same:cpassword',
             'cpassword' => 'required|min:8'
         ]);
-        $user = new User();
 
-        $data = $request->input();
-        $user->name = $data['name'];
-        $user->organization = $data['organization'];
-        $user->street = $data['street'];
-        $user->city = $data['city'];
-        $user->state = $data['state'];
-        $user->country = $data['country'];
-        $user->email = $data['email'];
-        $user->contact = $data['contact'];
-        $user->establishment_year = $data['establishment_year'];
-        $user->business_type = $data['business_type'];
-        $user->about = $data['about'];
-        $user->is_admin = 2;
-        $user->image = 'default.png';
-        $user->status_id = 2;
-        $user->password = Hash::make($data['password']);
-        $user->save();
+        $data = $userService->prepareUserData($request);
+        User::create($data);
 
         return redirect(route('vendors', ['id' => 2]));
     }
@@ -58,7 +42,7 @@ class VendorsController extends Controller
     {
         $query = User::select('users.*');
 
-        $data = $query->whereNot('users.is_admin', 1)->where('users.status_id', $request->id)->get();
+        $data = $query->whereNot('users.is_admin', 1)->where('users.status', $request->id)->get();
 
         return Datatables::of($data)
             ->addColumn('view', '<a href="{{route("vendors.view",[ "id" => $id ])}}" class="customButton">+</a>')
@@ -66,8 +50,8 @@ class VendorsController extends Controller
 
             ->editColumn('status', function ($raw) {
                 return '<select onchange="changeStatus(' . $raw->id . ', this)" class="badge badge-glow badge-primary">
-                <option ' . ($raw->status_id == 1 ? "selected" : "") . ' value="1"> Active </option>
-                <option ' . ($raw->status_id == 2 ? "selected" : "") . ' value="2"> InActive </option>
+                <option ' . ($raw->status == 1 ? "selected" : "") . ' value="1"> Active </option>
+                <option ' . ($raw->status == 2 ? "selected" : "") . ' value="2"> InActive </option>
             </select>';
             })
 
@@ -75,35 +59,14 @@ class VendorsController extends Controller
             ->make(true);
     }
 
-
-    public function update(Request $request)
+    public function update(Request $request, UserService $userService)
     {
-        $user = User::find($request->id);
-
-        $data = $request->input();
-        $user->name = $data['name'];
-        $user->organization = $data['organization'];
-        $user->street = $data['street'];
-        $user->city = $data['city'];
-        $user->state = $data['state'];
-        $user->country = $data['country'];
-        $user->email = $data['email'];
-        $user->contact = $data['contact'];
-        $user->establishment_year = $data['establishment_year'];
-        $user->business_type = $data['business_type'];
-        $user->about = $data['about'];
-        $user->is_admin = 2;
-        $user->status_id = $data['status'];
-        $user->save();
-
+        $data = $userService->prepareUserData($request);
+        unset($data['password']);
+        User::where('id', $request->id)->update($data);
         return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
     public function destroy(Request $request)
     {
         $id = $request->input("id", $request->id);
@@ -118,7 +81,7 @@ class VendorsController extends Controller
     {
         $vendor = User::where('is_admin', 2)->where('id', $id)->first();
 
-        return view('vendors::vendor.view-vendor', compact('vendor'));
+        return view('admin.vendor.view-vendor', compact('vendor'));
     }
 
     public function uploadImage(Request $request)
@@ -135,15 +98,13 @@ class VendorsController extends Controller
         return redirect()->back();
     }
 
-
     public function changestatus(Request $request)
     {
         $status = User::where('id', $request->id)->first();
-        $status->status_id = $request->status;
+        $status->status = $request->status;
         $status->save();
         return redirect()->back();
     }
-
 
     public function updatePassword(Request $request)
     {

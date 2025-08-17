@@ -38,19 +38,19 @@
 
                         @if (Auth::user()->is_admin == 1)
                             <a class="dropdown-item" href="{{ route('homepages') }}"><i class="mr-50"
-                                    data-feather="home"></i>Homepage</a>
+                                    data-feather="home"></i>Home Page</a>
 
                             <a class="dropdown-item" href="{{ route('cms') }}"><i class="mr-50"
                                     data-feather="file"></i>Pages</a>
 
                             <a class="dropdown-item" href="{{ route('vendors', ['id' => 1]) }}"><i class="mr-50"
-                                    data-feather="users"></i>Vendors</a>
+                                    data-feather="users"></i>Users</a>
 
                             <a class="dropdown-item" href="{{ route('categories') }}"><i class="mr-50"
                                     data-feather="clipboard"></i>Categories</a>
 
-                            <a class="dropdown-item" href="{{ route('brands') }}"><i class="mr-50"
-                                    data-feather="bar-chart"></i>Brands</a>
+                            <a class="dropdown-item" href="{{ route('referrals') }}"><i class="mr-50"
+                                    data-feather="bar-chart"></i>Product Referrals</a>
                         @endif
 
 
@@ -109,10 +109,10 @@
                     <li class="{{ Request::is('admin/homepage*') ? 'active' : '' }} nav-item">
                         <a class="d-flex align-items-center" href="{{ route('homepages') }}">
                             <i data-feather="home"></i>
-                            <span class="menu-title text-truncate">Homepage</span>
+                            <span class="menu-title text-truncate">Home Page</span>
                         </a>
                     </li>
-                    <li class="{{ Request::is('admin/page*') ? 'active' : '' }} nav-item">
+                    <li class="{{ Request::is('admin/cms*') ? 'active' : '' }} nav-item">
                         <a class="d-flex align-items-center" href="{{ route('cms') }}">
                             <i data-feather="file"></i>
                             <span class="menu-title text-truncate">Pages</span>
@@ -121,7 +121,7 @@
                     <li class="{{ Request::is('admin/vendor*') ? 'active' : '' }} nav-item">
                         <a class="d-flex align-items-center">
                             <i data-feather="users"></i>
-                            <span class="menu-title text-truncate">Vendors</span>
+                            <span class="menu-title text-truncate">Users</span>
                         </a>
                         <ul class="menu-content">
                             <li>
@@ -143,7 +143,7 @@
                 @endif
 
                 <li
-                    class=" nav-item {{ Request::is('admin/product*') ? 'active' : '' }}{{ Request::is('admin/categor*') ? 'active' : '' }}{{ Request::is('admin/brand*') ? 'active' : '' }}">
+                    class=" nav-item {{ Request::is('admin/product*') ? 'active' : '' }}">
                     <a class="d-flex align-items-center" href="#">
                         <i data-feather="database"></i>
                         <span class="menu-title text-truncate">Products</span>
@@ -182,16 +182,16 @@
                 </li>
 
                 @if (Auth::user()->is_admin == 1)
-                    <li>
+                    <li class="nav-item {{ Request::is('admin/categor*') ? 'active' : '' }}">
                         <a class="d-flex align-items-center" href="{{ route('categories') }}">
                             <i data-feather="file"></i>
                             <span class="menu-item" data-i18n="Preview">Categories</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="d-flex align-items-center" href="{{ route('brands') }}">
-                            <i data-feather="file"></i>
-                            <span class="menu-title text-truncate">Brands</span>
+                    <li class="nav-item {{ Request::is('admin/referr*') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ route('referrals') }}">
+                            <i data-feather="bar-chart"></i>
+                            <span class="menu-title text-truncate">Product Referrals</span>
                         </a>
                     </li>
                 @endif
@@ -224,7 +224,7 @@
                 </li>
 
                 @if (Auth::user()->is_admin == 1)
-                    <li class="{{ Request::is('admin/vendor*') ? 'active' : '' }} nav-item">
+                    <li class="{{ Request::is('admin/setting*') ? 'active' : '' }} nav-item">
                         <a class="d-flex align-items-center">
                             <i data-feather="settings"></i>
                             <span class="menu-title text-truncate">Settings</span>
@@ -236,7 +236,7 @@
                                     <span class="menu-item" data-i18n="Preview">Basic Info</span>
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a class="d-flex align-items-center" href="{{ route('settings.social.login') }}">
                                     <i data-feather="circle"></i>
                                     <span class="menu-item" data-i18n="Preview">Social Login</span>
@@ -266,6 +266,12 @@
                                     <span class="menu-item" data-i18n="Preview">Feature Activate</span>
                                 </a>
                             </li>
+                            <li>
+                                <a class="d-flex align-items-center" href="{{ route('settings.tax') }}">
+                                    <i data-feather="circle"></i>
+                                    <span class="menu-item" data-i18n="Preview">Tax</span>
+                                </a>
+                            </li> -->
                         </ul>
                     </li>
                 @endif

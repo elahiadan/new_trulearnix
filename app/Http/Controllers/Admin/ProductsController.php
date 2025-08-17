@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
-use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
+use App\Services\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Log;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Contracts\Support\Renderable;
 
 class ProductsController extends Controller
 {
-
     public function index(Request $request)
     {
         $id = $request->id;
@@ -28,62 +25,30 @@ class ProductsController extends Controller
 
     public function create()
     {
-        $categories = Category::where('status_id', 1)->latest()->get();
-        $vendors = User::where('status_id', 1)->latest()->get();
-        $brands = Brand::where('status_id', 1)->latest()->get();
-
-        return view('admin.product.add-product', compact('categories', 'vendors', 'brands'));
+        $categories = Category::where('status', 1)->latest()->get();
+        return view('admin.product.add-product', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, ProductService $productService)
     {
-        $user = new Product();
-
-        $data = $request->input();
-
-        $user->name = $data['name'];
-        $user->category_id  = $data['category'];
-        $user->vendor_id  = $data['vendor'];
-        $user->price_range = $data['price'];
-        $user->status_id  = $data['status'];
-        $user->description = $data['description'];
-        $user->brand_id = $data['brand'];
-
-        if ($request->hasFile('profile-image')) {
-            $image = $request->file('profile-image');
-            $name = uniqid() . ".jpg";
-            $path = public_path('images/product');
-            $image->move($path, $name);
-            $user->image = $name;
-        }
-
-        $arr = [];
-        foreach ($data['specification'] as $specification) {
-
-            if ($specification['key'] != null) {
-                $arr[$specification['key']] = $specification['value'];
-            } else {
-                $arr = null;
-            }
-        }
-
-        $user->specification = $arr;
-        $user->save();
-
+        $data = $productService->prepareProductData($request);
+        Product::create($data);
         return redirect(route('products', ['id' => 1]));
     }
 
 
     public function show(Request $request)
     {
-        $query = Product::select('products.*', 'users.organization as vendorName')
-            ->leftJoin('users', 'users.id', 'products.vendor_id');
+        // $query = Product::select('products.*', 'users.organization as vendorName')
+        //     ->leftJoin('users', 'users.id', 'products.vendor_id');
+
+        $query = Product::select('products.*');
 
         // if (auth()->user()->is_admin != 1) {
         //     $query->where('vendor_id', auth()->user()->id);
         // }
 
-        $data = $query->where('products.status_id', $request->id)->get();
+        $data = $query->where('products.status', $request->id)->get();
 
         return DataTables::of($data)
 
@@ -93,8 +58,8 @@ class ProductsController extends Controller
 
             ->editColumn('status', function ($raw) {
                 return '<select onchange="changeStatus(' . $raw->id . ', this)" class="badge badge-glow badge-primary">
-                <option ' . ($raw->status_id == 1 ? "selected" : "") . ' value="1"> Active </option>
-                <option ' . ($raw->status_id == 2 ? "selected" : "") . ' value="2"> InActive </option>
+                <option ' . ($raw->status == 1 ? "selected" : "") . ' value="1"> Active </option>
+                <option ' . ($raw->status == 2 ? "selected" : "") . ' value="2"> InActive </option>
             </select>';
             })
 
@@ -102,34 +67,11 @@ class ProductsController extends Controller
             ->make(true);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, ProductService $productService)
     {
-        $user = Product::find($request->id);
-
-        $data = $request->input();
-
-        $user->name = $data['name'];
-        $user->category_id  = $data['category'];
-        $user->vendor_id  = $data['vendor'];
-        $user->price_range = $data['price'];
-        $user->status_id  = $data['status'];
-        $user->description = $data['description'];
-        $user->brand_id = $data['brand'];
-
-        $arr = [];
-        foreach ($data['specification'] as $specification) {
-
-            if ($specification['key'] != null) {
-                $arr[$specification['key']] = $specification['value'];
-            } else {
-                $arr = '{}';
-            }
-        }
-
-        $user->specification = $arr;
-
-        $user->save();
-
+        $data = $productService->prepareProductData($request);
+        unset($data['password']);
+        Product::where('id', $request->id)->update($data);
         return redirect()->back();
     }
 
@@ -139,30 +81,28 @@ class ProductsController extends Controller
         $id = $request->input("id", $request->id);
 
         if ($id != null) {
-            Product::where("id", $id)->delete();
+            // Product::where("id", $id)->delete();
         }
         return redirect()->back();
     }
 
     public function view(Request $request, $id)
     {
-        $product = Product::with(['users', 'statuses', 'categories', 'brands'])->where('id', $id)->first();
-        $categories = Category::where('status_id', 1)->latest()->get();
-        $vendors = User::where('status_id', 1)->latest()->get();
-        $brands = Brand::where('status_id', 1)->latest()->get();
+        $product = Product::with(['categories'])->where('id', $id)->first();
+        $categories = Category::where('status', 1)->latest()->get();
 
-        return view('admin.product.view-product', compact('product', 'categories', 'vendors', 'brands'));
+        return view('admin.product.view-product', compact('product', 'categories'));
     }
 
     public function uploadImage(Request $request)
     {
-        $data = Product::find($request['userid']);
-        if ($request->hasFile('profile-image')) {
-            $image = $request->file('profile-image');
+        $data = Product::find($request['course_id']);
+        if ($request->hasFile('thumbnail_img')) {
+            $image = $request->file('thumbnail_img');
             $name = uniqid() . ".jpg";
             $path = public_path('images/product');
             $image->move($path, $name);
-            $data->image = $name;
+            $data->thumbnail_img = $name;
             $data->save();
         }
         return redirect()->back();
@@ -171,7 +111,7 @@ class ProductsController extends Controller
     public function changestatus(Request $request)
     {
         $status = Product::where('id', $request->id)->first();
-        $status->status_id = $request->status;
+        $status->status = $request->status;
         $status->save();
         return redirect()->back();
     }

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Vendor Management')
+@section('title', 'User Management')
 
 @section('row')
     <div class="content-header-left col-md-9 col-12 mb-2">
@@ -11,7 +11,7 @@
                         Verified
                     @elseif ($id == 2)
                         Unverified
-                    @endif Vendor Management
+                    @endif User Management
                 </h2>
 
             </div>

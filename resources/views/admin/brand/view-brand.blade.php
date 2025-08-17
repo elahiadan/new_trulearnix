@@ -151,7 +151,7 @@
                                                                 <div class="card-body col-lg-6">
                                                                     <h4 class="card-title">Status</h4>
                                                                     <p class="card-text">
-                                                                        @if ($vendor->status_id == 1)
+                                                                        @if ($vendor->status == 1)
                                                                             Active
                                                                         @else
                                                                             InActive

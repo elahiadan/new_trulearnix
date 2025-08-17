@@ -6,7 +6,7 @@
         <p class="clearfix mb-0">
             @if (get_setting('site_footer_text'))
               
-                    {!! get_setting('site_footer_text') !!}
+                    {!! renderHtml(get_setting('site_footer_text')) !!}
                
             @endif
         </p>

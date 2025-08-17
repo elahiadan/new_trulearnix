@@ -14,7 +14,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'category_id', 'vendor_id', 'name', 'price_range', 'status_id', 'created_at', 'updated_at'];
+    protected $fillable = ['title', 'subtitle', 'description', 'slug', 'category_id', 'level', 'language', 'mode_of_class', 'price', 'discount_type', 'discount', 'actual_price', 'commission_type', 'commission', 'total_commission', 'currency', 'content', 'specification', 'thumbnail_img', 'status'];
 
 
     public function getCreatedAtAttribute($value)
@@ -45,10 +45,7 @@ class Product extends Model
     protected function specification(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => json_encode($value),
+            set: fn($value) => json_encode($value),
         );
     }
-
-
-    
 }

@@ -27,14 +27,14 @@ class LoginController extends Controller
 
         $status = User::where('email', $request->email)->first();
         // if ($status != null && $status->status_id == 1) {
-            $r = false;
-            if ($request->input("remember") != null) {
-                $r = true;
-            }
-            if (Auth::attempt($credentials, $r)) {
-                $request->session()->regenerate();
-                return redirect()->intended('admin/dashboard');
-            }
+        $r = false;
+        if ($request->input("remember") != null) {
+            $r = true;
+        }
+        if (Auth::attempt($credentials, $r)) {
+            $request->session()->regenerate();
+            return redirect()->intended('admin/dashboard');
+        }
         // }
 
         return back()->withErrors([

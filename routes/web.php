@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\BrandsController;
 use App\Http\Controllers\Admin\QuotesController;
+use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\VendorsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomepageController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\ProductReferralController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +56,7 @@ Route::group(['middleware' => ['guest', 'preventBackHistory']], function () {
     Route::post('admin/login', [LoginController::class, 'authenticate'])->name('signin');
 });
 
-// DASHBOARD
+// ADMIN DASHBOARD
 Route::group(['middleware' => ['auth', 'preventBackHistory']], function () {
 
     Route::prefix('admin')->group(function () {
@@ -67,9 +69,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory']], function () {
 
         Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-
-        /////////   ADMIN   //////////
-
+        // Route::group(['middleware' => ['CheckIsAdmin']], function () {
         // Product
         Route::get('products/{id}', [ProductsController::class, 'index'])->name('products');
         Route::get('product/create', [ProductsController::class, 'create'])->name('products.create');
@@ -80,27 +80,21 @@ Route::group(['middleware' => ['auth', 'preventBackHistory']], function () {
         Route::get('product/delete', [ProductsController::class, 'destroy'])->name('products.delete');
         Route::get('product/{id}', [ProductsController::class, 'View'])->name('products.view');
         Route::post('product-upload-image', [ProductsController::class, 'uploadImage'])->name('products.upload.image');
-
         Route::get('product-status-change', [ProductsController::class, 'changestatus'])->name('products.change.status');
-        // Route::group(['middleware' => ['CheckIsAdmin']], function () {
-            // Category
-            Route::get('categories', [CategoryController::class, 'index'])->name('categories');
-            Route::get('category/create', [CategoryController::class, 'create'])->name('categories.create');
-            Route::post('category/store', [CategoryController::class, 'store'])->name('categories.store');
-            Route::get('category/show', [CategoryController::class, 'show'])->name('categories.show');
-            Route::get('category/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
-            Route::post('category/update', [CategoryController::class, 'update'])->name('categories.update');
-            Route::get('category/delete', [CategoryController::class, 'destroy'])->name('categories.delete');
-            Route::get('category/{id}', [CategoryController::class, 'View'])->name('categories.view');
-            Route::post('category-upload-image', [CategoryController::class, 'uploadImage'])->name('categories.upload.image');
 
-            Route::get('category-status-change', [CategoryController::class, 'changestatus'])->name('categories.change.status');
-        // });
+        // Category
+        Route::get('categories', [CategoryController::class, 'index'])->name('categories');
+        Route::get('category/create', [CategoryController::class, 'create'])->name('categories.create');
+        Route::post('category/store', [CategoryController::class, 'store'])->name('categories.store');
+        Route::get('category/show', [CategoryController::class, 'show'])->name('categories.show');
+        Route::get('category/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
+        Route::post('category/update', [CategoryController::class, 'update'])->name('categories.update');
+        Route::get('category/delete', [CategoryController::class, 'destroy'])->name('categories.delete');
+        Route::get('category/{id}', [CategoryController::class, 'View'])->name('categories.view');
+        Route::post('category-upload-image', [CategoryController::class, 'uploadImage'])->name('categories.upload.image');
+        Route::get('category-status-change', [CategoryController::class, 'changestatus'])->name('categories.change.status');
 
-
-
-
-        // Product
+        // Lead
         Route::get('quotes/{id}', [QuotesController::class, 'index'])->name('quotes');
         Route::get('quote/create', [QuotesController::class, 'create'])->name('quotes.create');
         Route::post('quote/store', [QuotesController::class, 'store'])->name('quotes.store');
@@ -110,15 +104,9 @@ Route::group(['middleware' => ['auth', 'preventBackHistory']], function () {
         Route::get('quote/delete', [QuotesController::class, 'destroy'])->name('quotes.delete');
         Route::get('quote/{id}', [QuotesController::class, 'View'])->name('quotes.view');
         Route::post('quote-upload-image', [QuotesController::class, 'uploadImage'])->name('quotes.upload.image');
-
         Route::get('quote-status-change', [QuotesController::class, 'changestatus'])->name('quotes.change.status');
 
-
-
-
-
-
-        // Vendor
+        // HomePage
         Route::get('homepage', [HomepageController::class, 'index'])->name('homepages');
         Route::get('homepage/create', [HomepageController::class, 'create'])->name('homepages.create');
         Route::post('homepage/store', [HomepageController::class, 'store'])->name('homepages.store');
@@ -130,10 +118,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory']], function () {
         Route::post('homepage-upload-image', [HomepageController::class, 'uploadImage'])->name('homepages.upload.image');
         Route::get('homepage-status-change', [HomepageController::class, 'changestatus'])->name('homepages.change.status');
 
-
-
-
-
+        // CMS
         Route::get('cms', [PagesController::class, 'index'])->name('cms');
         Route::get('cms/create', [PagesController::class, 'create'])->name('cms.create');
         Route::post('cms/store', [PagesController::class, 'store'])->name('cms.store');
@@ -145,12 +130,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory']], function () {
         Route::post('cms-upload-image', [PagesController::class, 'uploadImage'])->name('cms.upload.image');
         Route::get('cms-status-change', [PagesController::class, 'changestatus'])->name('cms.change.status');
 
-
-
-
-
-
-
+        // Vendor
         Route::get('vendors/{id}', [VendorsController::class, 'index'])->name('vendors');
         Route::get('vendor/create', [VendorsController::class, 'create'])->name('vendors.create');
         Route::post('vendor/store', [VendorsController::class, 'store'])->name('vendors.store');
@@ -163,12 +143,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory']], function () {
         Route::post('vendor-upload-image', [VendorsController::class, 'uploadImage'])->name('vendors.upload.image');
         Route::get('vendor-status-change', [VendorsController::class, 'changestatus'])->name('vendors.change.status');
 
-
-
-
-
-
-        // Vendor
+        // Brand
         Route::get('brands', [BrandsController::class, 'index'])->name('brands');
         Route::get('brand/create', [BrandsController::class, 'create'])->name('brands.create');
         Route::post('brand/store', [BrandsController::class, 'store'])->name('brands.store');
@@ -180,10 +155,6 @@ Route::group(['middleware' => ['auth', 'preventBackHistory']], function () {
         Route::post('brand-upload-image', [BrandsController::class, 'uploadImage'])->name('brands.upload.image');
         Route::get('brand-status-change', [BrandsController::class, 'changestatus'])->name('brands.change.status');
 
-
-
-
-
         // setting
         Route::get('settings', [SettingsController::class, 'index'])->name('settings');
         Route::get('settings/social-login', [SettingsController::class, 'socialLogin'])->name('settings.social.login');
@@ -192,8 +163,122 @@ Route::group(['middleware' => ['auth', 'preventBackHistory']], function () {
         Route::get('settings/file-system', [SettingsController::class, 'fileSystem'])->name('settings.file.system');
         Route::get('settings/feature-activate', [SettingsController::class, 'featureActivate'])->name('settings.feature.activate');
         Route::post('setting/update', [SettingsController::class, 'update'])->name('settings.update');
+
+        // TAX
+        Route::get('setting/tax', [SettingsController::class, 'tax'])->name('settings.tax');
+        Route::get('setting/store', [SettingsController::class, 'store'])->name('tax.store');
+        Route::get('setting/show', [SettingsController::class, 'show'])->name('taxes.tax-status');
+
+
+        // Country
+        Route::get('country', [CountryController::class, 'create'])->name('country.create');
+
+        // Product Referral
+        Route::get('referrals', [ProductReferralController::class, 'index'])->name('referrals');
+        Route::get('referral/create', [ProductReferralController::class, 'create'])->name('referrals.create');
+        Route::get('referral/store', [ProductReferralController::class, 'store'])->name('referrals.store');
+        Route::get('referral/show', [ProductReferralController::class, 'show'])->name('referrals.show');
+        Route::get('referral/edit', [ProductReferralController::class, 'edit'])->name('referrals.edit');
+        Route::get('referral/update', [ProductReferralController::class, 'update'])->name('referrals.update');
+        Route::get('referral/delete', [ProductReferralController::class, 'delete'])->name('referrals.delete');
+        // });
     });
 });
 
 
 // FRONTEND END
+
+
+
+// Route::get('/', function (Request $request) {
+//     // $ip = $request->ip();
+//     $ip = "161.248.47.17";
+//     $url = "http://ip-api.com/json/{$ip}";
+//     $response = Http::get($url);
+
+//     // dd(Session::get('country'));
+//     // if (session('country')) {
+//     //     dd("YES");
+//     // }
+
+//     // if ($response->successful()) {
+//     //     $data = $response->json();
+//     //     if ($data['status'] == 'success') {
+//     //         $country = $data['country']; // Full country name
+//     //         $countryCode = $data['countryCode']; // Country code (e.g., US, CA)
+
+//     //         // Session::put('country', 'United States');
+//     //         // Session::put('country', $country);
+//     //         // session()->put('country', 'United States');
+
+
+//     //         session(['country' => $country]);
+//     //         session(['countryCode' => $countryCode]);
+//     //         dd($data);
+//     //     }
+//     // }
+//     // dd($response);
+
+//     return view('welcome');
+// });
+
+// Route::get('country', [CountryController::class, 'index']);
+
+// // Guest routes
+// Route::middleware('guest')->group(function () {
+//     Route::get('login', [AuthController::class, 'showLogin'])->name('login');
+//     Route::post('login', [AuthController::class, 'login']);
+//     Route::get('register', [AuthController::class, 'showRegister'])->name('register');
+//     Route::post('register', [AuthController::class, 'register']);
+//     Route::get('role', [AuthController::class, 'role']);
+// });
+
+// // Authenticated routes
+// Route::middleware(['auth', 'role:admin|user', 'currecyRate'])->group(function () {
+//     // Route::get('dashboard', function () {
+//     //     return view('dashboard');
+//     // })->name('dashboard');
+
+
+
+//     Route::get('/dashboard', [OrderController::class, 'index'])->name('users.index');
+
+//     Route::get('exchange-rates/{key}', function ($key) {
+//         // $response = Http::get('https://v6.exchangerate-api.com/v6/ae87c2e89a33026bb9f6d433/latest/INR');
+//         $response = Http::get("https://v6.exchangerate-api.com/v6/$key/latest/INR");
+
+//         if ($response->successful()) {
+//             $data = $response->json();
+//             return $data;
+//         } else {
+//             return response()->json(['error' => 'Failed to fetch data'], 500);
+//         }
+//     });
+
+
+
+
+//     // Route::get('/checkout/{product}', [StripeController::class, 'checkout'])->name('stripe.checkout');
+//     // Route::get('/success', [StripeController::class, 'success'])->name('checkout.success');
+//     // Route::get('/cancel', [StripeController::class, 'cancel'])->name('checkout.cancel');
+//     // Route::post('/webhook/stripe', [StripeController::class, 'webhook']);
+
+
+//     Route::get('/pro', [ProductController::class, 'index'])->name('products.index');
+//     Route::get('/products/{slug}', [ProductController::class, 'show'])->name('products.show');
+
+//     Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+//     Route::get('/cart', [CartController::class, 'view'])->name('cart.view');
+
+//     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
+//     Route::post('/payment/create-intent', [StripeController::class, 'createPaymentIntent'])->name('payment.create-intent');
+//     Route::get('/payment/success', [StripeController::class, 'success'])->name('payment.success');
+
+//     Route::post('/stripe/webhook', [StripeWebhookController::class, 'handle'])->name('stripe.webhook');
+
+//     Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+
+
+//     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+// });

@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Contracts\Support\Renderable;
 
 class PagesController extends Controller
 {
@@ -15,7 +13,6 @@ class PagesController extends Controller
         $pages = Page::latest()->get();
         return view('admin.cms.cms', compact('pages'));
     }
-
 
     public function create(Request $request)
     {
@@ -28,7 +25,6 @@ class PagesController extends Controller
         ]);
     }
 
-
     public function store(Request $request)
     {
         $id = $request->id;
@@ -39,7 +35,7 @@ class PagesController extends Controller
         $page->description = $data['description'];
         $page->slug = $data['slug'];
         $page->keyword = serialize($data['keyword']);
-        $page->status_id = $data['status'];
+        $page->status = $data['status'];
         $page->save();
 
         return redirect(route('cms'));
@@ -56,18 +52,15 @@ class PagesController extends Controller
         ]);
     }
 
-
-
     public function edit($id)
     {
-        $pages= Page::where("id", $id)->first();
+        $pages = Page::where("id", $id)->first();
 
-        if($pages == null || $pages->id == null){
-             abort(404);
+        if ($pages == null || $pages->id == null) {
+            abort(404);
         }
         return view('admin.cms.cms-content-edit', compact('pages'));
     }
-
 
     public function update(Request $request)
     {
@@ -80,6 +73,4 @@ class PagesController extends Controller
 
         return redirect(route('cms'));
     }
-
-    
 }

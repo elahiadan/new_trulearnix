@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Vendor Details')
+@section('title', 'User Details')
 
 
 @section('content')
@@ -12,7 +12,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Vendor Details</h2>
+                        <h2 class="content-header-title float-left mb-0">User Details</h2>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
 
                                         <div class="card">
                                             <div class="card-header">
-                                                <h4 class="card-title">Vendor Details</h4>
+                                                <h4 class="card-title">User Details</h4>
                                                 <div class="heading-elements">
                                                     <ul class="list-inline mb-0">
 
@@ -164,9 +164,9 @@
                                                                 <div class="card-body col-lg-6">
                                                                     <h4 class="card-title">Status</h4>
                                                                     <p class="card-text">
-                                                                        @if ($vendor->status_id == 1)
+                                                                        @if ($vendor->status == 1)
                                                                             Active
-                                                                        @elseif($vendor->status_id == 2)
+                                                                        @elseif($vendor->status == 2)
                                                                             InActive
                                                                         @endif
                                                                     </p>
@@ -200,8 +200,8 @@
     </div>
 
     <!-- END: Content-->
-    @include('vendors::vendor.edit-vendor')
-    @include('vendors::vendor.edit-password')
+    @include('admin.vendor.edit-vendor')
+    @include('admin.vendor.edit-password')
 @endsection
 
 @push('js')

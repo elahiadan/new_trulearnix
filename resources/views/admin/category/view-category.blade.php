@@ -175,8 +175,8 @@
     </div>
 
     <!-- END: Content-->
-    @include('vendors::vendor.edit-vendor')
-    @include('vendors::vendor.edit-password')
+    @include('admin.vendor.edit-vendor')
+    @include('admin.vendor.edit-password')
 @endsection
 
 @push('js')

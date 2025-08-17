@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Quote Details')
+@section('title', 'Lead Details')
 
 
 @section('content')
@@ -12,7 +12,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Quote Details</h2>
+                        <h2 class="content-header-title float-left mb-0">Lead Details</h2>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
 
                                         <div class="card">
                                             <div class="card-header">
-                                                <h4 class="card-title">Quote Details</h4>
+                                                <h4 class="card-title">Leads Details</h4>
                                                 <div class="heading-elements">
                                                     <ul class="list-inline mb-0">
 
@@ -183,8 +183,8 @@
     </div>
 
     <!-- END: Content-->
-    @include('vendors::vendor.edit-vendor')
-    @include('vendors::vendor.edit-password')
+    @include('admin.vendor.edit-vendor')
+    @include('admin.vendor.edit-password')
 @endsection
 
 @push('js')
