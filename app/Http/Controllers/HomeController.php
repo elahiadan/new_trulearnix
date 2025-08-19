@@ -14,12 +14,6 @@ class HomeController extends Controller
         $this->pages = 'frontend';
     }
 
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $products = Homepage::with(['homeproducts' => function ($query) {

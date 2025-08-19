@@ -34,7 +34,7 @@ if (!function_exists('convertPrice')) {
 if (!function_exists('allCurrencies')) {
     function allCurrencies()
     {
-        return Country::orderBy('currency_code')->get();
+        return Country::where('status', 1)->orderBy('currency_code')->get();
     }
 }
 

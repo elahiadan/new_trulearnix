@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('currency_code', 5)->nullable();
             $table->decimal('rate_to_inr', 15, 8)->nullable();
             $table->string('currency_dial_code', 10)->nullable();
+            $table->tinyInteger('status')->default(0)->unsigned()->comment('1 => Active 0 => InActive');
             $table->tinyInteger('currency_dial_code_length')->nullable();
             $table->text('timezones')->nullable();
             $table->text('iso')->nullable();
