@@ -7,13 +7,6 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    private $pages;
-
-    public function __construct()
-    {
-        $this->pages = 'frontend';
-    }
-
     public function index()
     {
         $products = Homepage::with(['homeproducts' => function ($query) {
@@ -23,32 +16,57 @@ class HomeController extends Controller
         return view('welcome', compact('products'));
     }
 
-
-    public function about(){
-        return view('websites::pages.about');
+    public function dashboard()
+    {
+        $products = [];
+        return view('user.dashboard', compact('products'));
     }
 
-    public function contact(){
-        return view('websites::pages.contact');
+    public function productDetails()
+    {
+        $products = [];
+        return view('product-details', compact('products'));
     }
 
-    public function newHome(){
-        return view('frontend.index');
+    public function products()
+    {
+        $products = [];
+        return view('products', compact('products'));
     }
 
-    public function newAbout(){
-        return view('frontend.about');
+    public function cart()
+    {
+        $products = [];
+        return view('cart', compact('products'));
     }
 
-    public function newContact(){
-        return view('frontend.contact');
+    public function checkout()
+    {
+        $products = [];
+        return view('checkout', compact('products'));
     }
 
-    public function newGallery(){
-        return view('frontend.gallery');
+    public function login()
+    {
+        $products = [];
+        return view('login', compact('products'));
     }
 
-    public function productDetails(){
-        return view('frontend.product-details');
+    public function about()
+    {
+        $products = [];
+        return view('about', compact('products'));
+    }
+
+    public function contact()
+    {
+        $products = [];
+        return view('contact', compact('products'));
+    }
+
+    public function faqs()
+    {
+        $products = [];
+        return view('faqs', compact('products'));
     }
 }

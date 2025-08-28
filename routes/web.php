@@ -33,11 +33,15 @@ Route::get('landing', function () {
     return view('landing');
 });
 
+Route::get('login', [HomeController::class, 'login'])->name('login');
+Route::get('about', [HomeController::class, 'about'])->name('about');
+Route::get('contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('faqs', [HomeController::class, 'faqs'])->name('faqs');
+
+
 // FRONTEND START
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::post('subscribeNewsletter', [HomeController::class, 'store'])->name('subscribeNewsletter');
 Route::post('getContactDetails', [HomeController::class, 'getContactDetails'])->name('getContactDetails');
@@ -187,6 +191,18 @@ Route::group(['middleware' => ['auth', 'preventBackHistory']], function () {
 
 
 // FRONTEND END
+
+Route::group(['middleware' => ['auth', 'preventBackHistory']], function () {
+
+    Route::prefix('user')->group(function () {
+        Route::get('dashboard', [HomeController::class, 'dashboard'])->name('user.dashboard');
+        Route::get('products', [HomeController::class, 'products'])->name('user.products');
+        Route::get('product-details', [HomeController::class, 'productDetails'])->name('user.product.details');
+        Route::get('cart', [HomeController::class, 'cart'])->name('user.cart');
+        Route::get('checkout', [HomeController::class, 'checkout'])->name('user.checkout');
+    });
+});
+
 
 
 

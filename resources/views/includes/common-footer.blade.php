@@ -12,12 +12,11 @@
                              </div>
                              <div class="logo d-none logo-light">
                                  <a href="index.html">
-                                     <img src="assets/images/dark/logo/logo-light.png" alt="Edu-cause">
+                                     <img src="{{asset('images/logos/68a4a40cb4984.jpg')}}" alt="Edu-cause">
                                  </a>
                              </div>
 
-                             <p class="description mt--20">We’re always in search for talented
-                                 and motivated people. Don’t be shy introduce yourself!
+                             <p class="description mt--20">We’re always in search for talented and motivated people. Don’t be shy introduce yourself!
                              </p>
 
                              <div class="contact-btn mt--30">
@@ -127,7 +126,7 @@
                      <ul
                          class="copyright-link rbt-link-hover justify-content-center justify-content-lg-end mt_sm--10 mt_md--10">
                          @foreach (pages() as $item)
-                             <li><a href="#">{{ $item->title }}</a></li>
+                         <li><a href="#">{{ $item->title }}</a></li>
                          @endforeach
                      </ul>
                  </div>

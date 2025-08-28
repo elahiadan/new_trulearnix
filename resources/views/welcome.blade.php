@@ -34,15 +34,15 @@
                                     </a>
                                 </div>
                             </div>
-                            {{-- <div class="shape-wrapper" id="scene">
-                                <img src="{{ url('images/logos', get_setting('site_banner')) }}" alt="Hero Image">
-                                <div class="hero-bg-shape-1 layer" data-depth="0.4">
-                                    <img src="{{ asset('assets/images/banners/banner-6.jpg')}}" alt="Hero Image Background Shape">
-                                </div>
+                             <div class="shape-wrapper" id="scene">
+                                {{-- <img src="{{ url('images/logos', get_setting('site_banner')) }}" alt="Hero Image"> --}}
+                                {{-- <div class="hero-bg-shape-1 layer" data-depth="0.4">
+                                    <img src="{{ asset('assets/images/banner/banner-6.jpg')}}" alt="Hero Image Background Shape">
+                                </div> --}}
                                 <div class="hero-bg-shape-2 layer" data-depth="0.4">
-                                    <img src="{{ asset('assets/images/banners/banner.png')}}" alt="Hero Image Background Shape">
+                                    <img src="{{ asset('assets/images/banner/banner.png')}}" alt="Hero Image Background Shape">
                                 </div>
-                            </div> --}}
+                            </div> 
 
                             <div class="banner-card pb--60 mb--50 swiper rbt-dot-bottom-center banner-swiper-active">
                                 <div class="swiper-wrapper">
@@ -52,7 +52,7 @@
                                         <div class="rbt-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
                                                 <a href="course-details.html">
-                                                    <img src="assets/images/course/course-01.jpg" alt="Card image">
+                                                    <img src="{{asset('assets/images/product/1.png')}}" alt="Card image">
                                                     <div class="rbt-badge-3 bg-white">
                                                         <span>-40%</span>
                                                         <span>Off</span>
@@ -96,7 +96,7 @@
                                         <div class="rbt-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
                                                 <a href="course-details.html">
-                                                    <img src="assets/images/course/classic-lms-01.jpg" alt="Card image">
+                                                    <img src="{{asset('assets/images/product/2.png')}}" alt="Card image">
                                                     <div class="rbt-badge-3 bg-white">
                                                         <span>-40%</span>
                                                         <span>Off</span>
@@ -140,7 +140,7 @@
                                         <div class="rbt-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
                                                 <a href="course-details.html">
-                                                    <img src="assets/images/course/course-online-02.jpg" alt="Card image">
+                                                    <img src="{{asset('assets/images/product/3.png')}}" alt="Card image">
                                                     <div class="rbt-badge-3 bg-white">
                                                         <span>-40%</span>
                                                         <span>Off</span>
@@ -205,7 +205,7 @@
                         <a class="rbt-cat-box rbt-cat-box-1 text-center" href="course-filter-one-toggle.html">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/category/web-design.png" alt="Icons Images">
+                                    <img src="{{asset('assets/images/category/01.png')}}" alt="Icons Images">
                                 </div>
                                 <div class="content">
                                     <h5 class="title">Web Design</h5>
@@ -223,7 +223,7 @@
                         <a class="rbt-cat-box rbt-cat-box-1 text-center" href="course-filter-one-toggle.html">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/category/design.png" alt="Icons Images">
+                                    <img src="{{asset('assets/images/category/02.png')}}" alt="Icons Images">
                                 </div>
                                 <div class="content">
                                     <h5 class="title">Graphic Design</h5>
@@ -241,7 +241,7 @@
                         <a class="rbt-cat-box rbt-cat-box-1 text-center" href="course-filter-one-toggle.html">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/category/personal.png" alt="Icons Images">
+                                    <img src="{{asset('assets/images/category/03.png')}}" alt="Icons Images">
                                 </div>
                                 <div class="content">
                                     <h5 class="title">Personal Development</h5>
@@ -259,7 +259,7 @@
                         <a class="rbt-cat-box rbt-cat-box-1 text-center" href="course-filter-one-toggle.html">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/category/server.png" alt="Icons Images">
+                                    <img src="{{asset('assets/images/category/04.png')}}" alt="Icons Images">
                                 </div>
                                 <div class="content">
                                     <h5 class="title">IT and Software</h5>
@@ -277,7 +277,7 @@
                         <a class="rbt-cat-box rbt-cat-box-1 text-center" href="course-filter-one-toggle.html">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/category/pantone.png" alt="Icons Images">
+                                    <img src="{{asset('assets/images/category/05.png')}}" alt="Icons Images">
                                 </div>
                                 <div class="content">
                                     <h5 class="title">Sales Marketing</h5>
@@ -295,7 +295,7 @@
                         <a class="rbt-cat-box rbt-cat-box-1 text-center" href="course-filter-one-toggle.html">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/category/paint-palette.png" alt="Icons Images">
+                                    <img src="{{asset('assets/images/category/08.png')}}" alt="Icons Images">
                                 </div>
                                 <div class="content">
                                     <h5 class="title">Art & Humanities</h5>
@@ -313,7 +313,7 @@
                         <a class="rbt-cat-box rbt-cat-box-1 text-center" href="course-filter-one-toggle.html">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/category/smartphone.png" alt="Icons Images">
+                                    <img src="{{asset('assets/images/category/06.png')}}" alt="Icons Images">
                                 </div>
                                 <div class="content">
                                     <h5 class="title">Mobile Application</h5>
@@ -331,7 +331,7 @@
                         <a class="rbt-cat-box rbt-cat-box-1 text-center" href="course-filter-one-toggle.html">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/category/infographic.png" alt="Icons Images">
+                                    <img src="{{asset('assets/images/category/07.png')}}" alt="Icons Images">
                                 </div>
                                 <div class="content">
                                     <h5 class="title">Finance & Accounting</h5>
@@ -354,7 +354,7 @@
                     <div class="col-lg-12">
                         <div class="section-title text-center">
                             <span class="subtitle bg-secondary-opacity">Top Popular Course</span>
-                            <h2 class="title">Histudy Course student <br /> can join with us.</h2>
+                            <h2 class="title">TruLearnix Course student <br /> can join with us.</h2>
                         </div>
                     </div>
                 </div>
@@ -365,7 +365,7 @@
                         <div class="rbt-card variation-01 rbt-hover">
                             <div class="rbt-card-img">
                                 <a href="course-details.html">
-                                    <img src="assets/images/course/course-01.jpg" alt="Card image">
+                                    <img src="{{asset('assets/images/product/1.png')}}" alt="Card image">
                                     <div class="rbt-badge-3 bg-white">
                                         <span>-50%</span>
                                         <span>Off</span>
@@ -402,7 +402,7 @@
                                 <div class="rbt-author-meta mb--20">
                                     <div class="rbt-avater">
                                         <a href="#">
-                                            <img src="assets/images/client/avater-01.png" alt="Sophia Jaymes">
+                                            <img src="{{asset('assets/images/client/1.png')}}" alt="Sophia Jaymes">
                                         </a>
                                     </div>
                                     <div class="rbt-author-info">
@@ -428,7 +428,7 @@
                         <div class="rbt-card variation-01 rbt-hover">
                             <div class="rbt-card-img">
                                 <a href="course-details.html">
-                                    <img src="assets/images/course/course-02.jpg" alt="Card image">
+                                    <img src="{{asset('assets/images/product/2.png')}}" alt="Card image">
                                     <div class="rbt-badge-3 bg-white">
                                         <span>-40%</span>
                                         <span>Off</span>
@@ -463,7 +463,7 @@
                                 <div class="rbt-author-meta mb--20">
                                     <div class="rbt-avater">
                                         <a href="#">
-                                            <img src="assets/images/client/avatar-02.png" alt="Sophia Jaymes">
+                                            <img src="{{asset('assets/images/client/2.png')}}" alt="Sophia Jaymes">
                                         </a>
                                     </div>
                                     <div class="rbt-author-info">
@@ -488,7 +488,7 @@
                         <div class="rbt-card variation-01 rbt-hover">
                             <div class="rbt-card-img">
                                 <a href="course-details.html">
-                                    <img src="assets/images/course/course-03.jpg" alt="Card image">
+                                    <img src="{{asset('assets/images/product/3.png')}}" alt="Card image">
                                     <div class="rbt-badge-3 bg-white">
                                         <span>-40%</span>
                                         <span>Off</span>
@@ -524,7 +524,7 @@
                                 <div class="rbt-author-meta mb--20">
                                     <div class="rbt-avater">
                                         <a href="#">
-                                            <img src="assets/images/client/avatar-03.png" alt="Sophia Jaymes">
+                                            <img src="{{asset('assets/images/client/3.png')}}" alt="Sophia Jaymes">
                                         </a>
                                     </div>
                                     <div class="rbt-author-info">
@@ -564,22 +564,22 @@
         <!-- End Course Area -->
 
         <!-- Start About Area  -->
-        {{-- <div class="rbt-about-area bg-color-white rbt-section-gapTop pb_md--80 pb_sm--80 about-style-1">
+         <div class="rbt-about-area bg-color-white rbt-section-gapTop pb_md--80 pb_sm--80 about-style-1">
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
                         <div class="thumbnail-wrapper">
                             <div class="thumbnail image-1">
-                                <img data-parallax='{"x": 0, "y": -20}' src="assets/images/about/about-01.png"
-                                    alt="Education Images">
+                                <img data-parallax='{"x": 0, "y": -20}' src="{{asset('assets/images/profile/user-01.jpg')}}"
+                                    alt="TruLearnix Images">
                             </div>
                             <div class="thumbnail image-2 d-none d-xl-block">
-                                <img data-parallax='{"x": 0, "y": 60}' src="assets/images/about/about-02.png"
-                                    alt="Education Images">
+                                <img data-parallax='{"x": 0, "y": 60}' src="{{asset('assets/images/profile/user-02.jpg')}}"
+                                    alt="TruLearnix Images">
                             </div>
                             <div class="thumbnail image-3 d-none d-md-block">
-                                <img data-parallax='{"x": 0, "y": 80}' src="assets/images/about/about-03.png"
-                                    alt="Education Images">
+                                <img data-parallax='{"x": 0, "y": 80}' src="{{asset('assets/images/profile/user-03.jpg')}}"
+                                    alt="TruLearnix Images">
                             </div>
                         </div>
                     </div>
@@ -587,7 +587,7 @@
                         <div class="inner pl--50 pl_sm--0 pl_md--0">
                             <div class="section-title text-start">
                                 <span class="subtitle bg-coral-opacity">Know About Us</span>
-                                <h2 class="title">Know About Histudy <br /> Learning Platform</h2>
+                                <h2 class="title">Know About TruLearnix <br /> Learning Platform</h2>
                             </div>
 
                             <p class="description mt--30">Far far away, behind the word mountains, far from the countries
@@ -634,11 +634,11 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div> 
         <!-- End About Area  -->
 
         <!-- Start Call To Action  -->
-        {{-- <div class="rbt-callto-action-area mt_dec--half">
+         <div class="rbt-callto-action-area mt_dec--half">
             <div class="container">
                 <div class="row g-5">
                     <div class="col-lg-6">
@@ -649,13 +649,13 @@
                                         <div class="rbt-category mb--20">
                                             <a href="#">New Collection</a>
                                         </div>
-                                        <h4 class="title mb--15">Online Courses from Histudy</h4>
+                                        <h4 class="title mb--15">Online Courses from TruLearnix</h4>
                                         <p class="mb--15">Top instructors from around the world</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-7">
                                     <div class="video-popup-wrapper mt_lg--10 mt_md--20 mt_sm--20">
-                                        <img class="w-100 rbt-radius" src="assets/images/others/video-01.jpg"
+                                        <img class="w-100 rbt-radius" src="{{asset('assets/images/icons/json.png')}}"
                                             alt="Video Images">
                                         <a class="rbt-btn rounded-player-2 sm-size popup-video position-to-top with-animation"
                                             href="https://www.youtube.com/watch?v=nA1Aqp0sPQo">
@@ -674,7 +674,7 @@
                                         <div class="rbt-category mb--20">
                                             <a href="#">Top Teacher</a>
                                         </div>
-                                        <h4 class="title mb--10">Free Online Courses from Histudy School To Education</h4>
+                                        <h4 class="title mb--10">Free Online Courses from TruLearnix School To TruLearnix</h4>
                                         <p class="mb--15">Top instructors from around the world</p>
                                         <div class="read-more-btn">
                                             <a class="rbt-btn rbt-switch-btn btn-gradient btn-sm" href="#">
@@ -688,11 +688,11 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div> 
         <!-- End Call To Action  -->
 
         <!-- Start Counterup Area  -->
-        {{-- <div class="rbt-counterup-area bg-color-extra2 rbt-section-gapBottom default-callto-action-overlap">
+         <div class="rbt-counterup-area bg-color-extra2 rbt-section-gapBottom default-callto-action-overlap">
             <div class="container">
                 <div class="row mb--60">
                     <div class="col-lg-12">
@@ -709,7 +709,7 @@
                             <div class="top-circle-shape"></div>
                             <div class="inner">
                                 <div class="rbt-round-icon">
-                                    <img src="assets/images/icons/counter-01.png" alt="Icons Images">
+                                    <img src="{{asset('assets/images/icons/js.png')}}" alt="Icons Images">
                                 </div>
                                 <div class="content">
                                     <h3 class="counter"><span class="odometer" data-count="500">00</span>
@@ -727,7 +727,7 @@
                             <div class="top-circle-shape"></div>
                             <div class="inner">
                                 <div class="rbt-round-icon">
-                                    <img src="assets/images/icons/counter-02.png" alt="Icons Images">
+                                    <img src="{{asset('assets/images/icons/drive.png')}}" alt="Icons Images">
                                 </div>
                                 <div class="content">
                                     <h3 class="counter"><span class="odometer" data-count="800">00</span>
@@ -745,7 +745,7 @@
                             <div class="top-circle-shape"></div>
                             <div class="inner">
                                 <div class="rbt-round-icon">
-                                    <img src="assets/images/icons/counter-03.png" alt="Icons Images">
+                                    <img src="{{asset('assets/images/icons/json.png')}}" alt="Icons Images">
                                 </div>
                                 <div class="content">
                                     <h3 class="counter"><span class="odometer" data-count="1000">00</span>
@@ -763,7 +763,7 @@
                             <div class="top-circle-shape"></div>
                             <div class="inner">
                                 <div class="rbt-round-icon">
-                                    <img src="assets/images/icons/counter-04.png" alt="Icons Images">
+                                    <img src="{{asset('assets/images/icons/doc.png')}}" alt="Icons Images">
                                 </div>
                                 <div class="content">
                                     <h3 class="counter"><span class="odometer" data-count="100">00</span>
@@ -776,18 +776,18 @@
                     <!-- End Single Counter  -->
                 </div>
             </div>
-        </div> --}}
+        </div> 
         <!-- End Counterup Area  -->
 
         <!-- Start Testimonial Area   -->
-        {{-- <div class="rbt-testimonial-area bg-color-white rbt-section-gap overflow-hidden">
+     <div class="rbt-testimonial-area bg-color-white rbt-section-gap overflow-hidden">
             <div class="wrapper">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="section-title text-center mb--10">
-                                <span class="subtitle bg-primary-opacity">EDUCATION FOR EVERYONE</span>
-                                <h2 class="title">People like histudy education. <br /> No joking - here’s the proof!
+                                <span class="subtitle bg-primary-opacity">TruLearnix FOR EVERYONE</span>
+                                <h2 class="title">People like TruLearnix TruLearnix. <br /> No joking - here’s the proof!
                                 </h2>
                             </div>
                         </div>
@@ -802,14 +802,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/facebook.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/psd.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">After the launch, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-01.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/1.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Martha Maldonado, <span>CEO</span></h5>
@@ -826,14 +826,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/google.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/google-chrome.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
-                                    <p class="subtitle-3">Histudy education, vulputate at sapien sit amet,
+                                    <p class="subtitle-3">TruLearnix TruLearnix, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-02.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/2.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Michael D., <span>CEO</span></h5>
@@ -850,14 +850,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/yelp.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/drive.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">Our educational, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-03.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/3.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Valerie J., <span>CEO</span></h5>
@@ -874,14 +874,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/facebook.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/js.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">People says about, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-04.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/4.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Hannah R., <span>CEO</span></h5>
@@ -897,14 +897,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/bing.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/jpg.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
-                                    <p class="subtitle-3">Like this histudy, vulputate at sapien sit amet,
+                                    <p class="subtitle-3">Like this TruLearnix, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-05.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/5.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Pearl B. Hill, <span>Marketing</span></h5>
@@ -921,14 +921,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/facebook.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/json.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">Educational template, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-01.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/1.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Mandy F. Wood, <span>SR Designer</span></h5>
@@ -945,14 +945,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/hubs.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/xls.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">Online leaning, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-07.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/7.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Mildred W. Diaz, <span>Executive</span></h5>
@@ -969,14 +969,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/bing.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/internet.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">Remote learning, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-08.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/8.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Christopher, <span>CEO</span></h5>
@@ -993,14 +993,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/yelp.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/pdf.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">University managemnet, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-06.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/6.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Fatima, <span>Child</span></h5>
@@ -1022,14 +1022,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/facebook.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/icloud.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">After the launch, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-01.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/1.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Martha Maldonado, <span>CEO</span></h5>
@@ -1046,14 +1046,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/google.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/google-chrome.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
-                                    <p class="subtitle-3">Histudy education, vulputate at sapien sit amet,
+                                    <p class="subtitle-3">TruLearnix TruLearnix, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-02.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/2.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Michael D., <span>CEO</span></h5>
@@ -1070,14 +1070,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/yelp.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/onedrive.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">Our educational, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-03.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/3.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Valerie J., <span>CEO</span></h5>
@@ -1094,14 +1094,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/bing.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/opera.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">People says about, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-04.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/4.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Hannah R., <span>CEO</span></h5>
@@ -1117,14 +1117,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/hubs.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/txt.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
-                                    <p class="subtitle-3">Like this histudy, vulputate at sapien sit amet,
+                                    <p class="subtitle-3">Like this TruLearnix, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-05.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/5.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Pearl B. Hill, <span>Marketing</span></h5>
@@ -1141,14 +1141,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/yelp.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/psd.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">Educational template, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-01.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/1.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Mandy F. Wood, <span>SR Designer</span></h5>
@@ -1165,14 +1165,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/bing.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/dropbox.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">Online leaning, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-07.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/7.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Mildred W. Diaz, <span>Executive</span></h5>
@@ -1189,14 +1189,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/facebook.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/drive.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">Remote learning, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-08.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/8.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Christopher, <span>CEO</span></h5>
@@ -1213,14 +1213,14 @@
                         <div class="rbt-testimonial-box style-2">
                             <div class="inner">
                                 <div class="icons">
-                                    <img src="assets/images/icons/yelp.png" alt="Clint Images">
+                                    <img src="{{asset('assets/images/icons/doc.png')}}" alt="Clint Images">
                                 </div>
                                 <div class="description">
                                     <p class="subtitle-3">University managemnet, vulputate at sapien sit amet,
                                         auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
                                     <div class="clint-info-wrapper">
                                         <div class="thumb">
-                                            <img src="assets/images/testimonial/client-06.png" alt="Clint Images">
+                                            <img src="{{asset('assets/images/testimonial/6.png')}}" alt="Clint Images">
                                         </div>
                                         <div class="client-info">
                                             <h5 class="title">Fatima, <span>Child</span></h5>
@@ -1233,11 +1233,11 @@
                     <!-- End Single Testimonial  -->
                 </div>
             </div>
-        </div> --}}
+        </div> 
         <!-- End Testimonial Area   -->
 
         <!-- Start Event Area  -->
-        {{-- <div class="rbt-event-area rbt-section-gap bg-gradient-3">
+         <div class="rbt-event-area rbt-section-gap bg-gradient-3">
             <div class="container">
                 <div class="row mb--55">
                     <div class="section-title text-center">
@@ -1257,7 +1257,7 @@
                                         <div class="rbt-card event-grid-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
                                                 <a href="event-details.html">
-                                                    <img src="assets/images/event/grid-type-02.jpg" alt="Card image">
+                                                    <img src="{{asset('assets/images/event/02.jpg')}}" alt="Card image">
                                                     <div class="rbt-badge-3 bg-white">
                                                         <span>11 Mar</span>
                                                         <span>2024</span>
@@ -1270,7 +1270,7 @@
                                                     <li><i class="feather-clock"></i>8:00 am - 5:00 pm</li>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a href="event-details.html">Painting Art
-                                                        Contest 2020 for histudy
+                                                        Contest 2020 for TruLearnix
                                                         Clud</a></h4>
 
                                                 <div class="read-more-btn">
@@ -1296,7 +1296,7 @@
                                         <div class="rbt-card event-grid-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
                                                 <a href="event-details.html">
-                                                    <img src="assets/images/event/grid-type-04.jpg" alt="Card image">
+                                                    <img src="{{asset('assets/images/event/04.jpg')}}" alt="Card image">
                                                     <div class="rbt-badge-3 bg-white">
                                                         <span>11 Jan</span>
                                                         <span>2024</span>
@@ -1336,7 +1336,7 @@
                                         <div class="rbt-card event-grid-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
                                                 <a href="event-details.html">
-                                                    <img src="assets/images/event/grid-type-05.jpg" alt="Card image">
+                                                    <img src="{{asset('assets/images/event/05.jpg')}}" alt="Card image">
                                                     <div class="rbt-badge-3 bg-white">
                                                         <span>11 Mar</span>
                                                         <span>2024</span>
@@ -1349,7 +1349,7 @@
                                                     <li><i class="feather-clock"></i>8:00 am - 5:00 pm</li>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a href="event-details.html">Most Effective
-                                                        Ways for Education's
+                                                        Ways for TruLearnix's
                                                         Problem</a></h4>
 
                                                 <div class="read-more-btn">
@@ -1376,7 +1376,7 @@
                                         <div class="rbt-card event-grid-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
                                                 <a href="event-details.html">
-                                                    <img src="assets/images/event/grid-type-01.jpg" alt="Card image">
+                                                    <img src="{{asset('assets/images/event/01.jpg')}}" alt="Card image">
                                                     <div class="rbt-badge-3 bg-white">
                                                         <span>11 Jan</span>
                                                         <span>2024</span>
@@ -1389,7 +1389,7 @@
                                                     <li><i class="feather-clock"></i>8:00 am - 5:00 pm</li>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a href="event-details.html">International
-                                                        Education Fair 2024</a>
+                                                        TruLearnix Fair 2024</a>
                                                 </h4>
 
                                                 <div class="read-more-btn">
@@ -1430,10 +1430,10 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div> 
 
         <!-- End Event Area  -->
-        {{-- <div class="rbt-team-area bg-color-white rbt-section-gap">
+         <div class="rbt-team-area bg-color-white rbt-section-gap">
             <div class="container">
                 <div class="row mb--60">
                     <div class="col-lg-12">
@@ -1453,7 +1453,7 @@
                                 <div class="inner">
                                     <div class="rbt-team-thumbnail">
                                         <div class="thumb">
-                                            <img src="assets/images/team/team-01.jpg" alt="Testimonial Images">
+                                            <img src="{{asset('assets/images/team/1.png')}}" alt="Testimonial Images">
                                         </div>
                                     </div>
                                     <div class="rbt-team-details">
@@ -1465,7 +1465,7 @@
                                                 <span class="location">CO Miego, AD,USA</span>
                                             </span>
                                         </div>
-                                        <p>Histudy The standard chunk of Lorem Ipsum used since the 1500s is reproduced
+                                        <p>TruLearnix The standard chunk of Lorem Ipsum used since the 1500s is reproduced
                                             below for those interested.</p>
                                         <ul class="social-icon social-default mt--20 justify-content-start">
                                             <li><a href="https://www.facebook.com/">
@@ -1498,7 +1498,7 @@
                                 <div class="inner">
                                     <div class="rbt-team-thumbnail">
                                         <div class="thumb">
-                                            <img src="assets/images/team/team-02.jpg" alt="Testimonial Images">
+                                            <img src="{{asset('assets/images/team/2.png')}}" alt="Testimonial Images">
                                         </div>
                                     </div>
                                     <div class="rbt-team-details">
@@ -1510,7 +1510,7 @@
                                                 <span class="location">CO Miego, AD,USA</span>
                                             </span>
                                         </div>
-                                        <p>Education The standard chunk of Lorem Ipsum used since the 1500s is reproduced
+                                        <p>TruLearnix The standard chunk of Lorem Ipsum used since the 1500s is reproduced
                                             below for those interested.</p>
                                         <ul class="social-icon social-default mt--20 justify-content-start">
                                             <li><a href="https://www.facebook.com/">
@@ -1543,7 +1543,7 @@
                                 <div class="inner">
                                     <div class="rbt-team-thumbnail">
                                         <div class="thumb">
-                                            <img src="assets/images/team/team-03.jpg" alt="Testimonial Images">
+                                            <img src="{{asset('assets/images/team/3.png')}}" alt="Testimonial Images">
                                         </div>
                                     </div>
                                     <div class="rbt-team-details">
@@ -1588,7 +1588,7 @@
                                 <div class="inner">
                                     <div class="rbt-team-thumbnail">
                                         <div class="thumb">
-                                            <img src="assets/images/team/team-04.jpg" alt="Testimonial Images">
+                                            <img src="{{asset('assets/images/team/4.png')}}" alt="Testimonial Images">
                                         </div>
                                     </div>
                                     <div class="rbt-team-details">
@@ -1600,7 +1600,7 @@
                                                 <span class="location">CO Miego, AD,USA</span>
                                             </span>
                                         </div>
-                                        <p>Histudy The standard chunk of Lorem Ipsum used since the 1500s is reproduced
+                                        <p>TruLearnix The standard chunk of Lorem Ipsum used since the 1500s is reproduced
                                             below for those interested.</p>
                                         <ul class="social-icon social-default mt--20 justify-content-start">
                                             <li><a href="https://www.facebook.com/">
@@ -1634,7 +1634,7 @@
                                 <div class="inner">
                                     <div class="rbt-team-thumbnail">
                                         <div class="thumb">
-                                            <img src="assets/images/team/team-05.jpg" alt="Testimonial Images">
+                                            <img src="{{asset('assets/images/team/5.png')}}" alt="Testimonial Images">
                                         </div>
                                     </div>
                                     <div class="rbt-team-details">
@@ -1646,7 +1646,7 @@
                                                 <span class="location">CO Miego, AD,USA</span>
                                             </span>
                                         </div>
-                                        <p>Histudy The standard chunk of Lorem Ipsum used since the 1500s is reproduced
+                                        <p>TruLearnix The standard chunk of Lorem Ipsum used since the 1500s is reproduced
                                             below for those interested.</p>
                                         <ul class="social-icon social-default mt--20 justify-content-start">
                                             <li><a href="https://www.facebook.com/">
@@ -1680,7 +1680,7 @@
                                 <div class="inner">
                                     <div class="rbt-team-thumbnail">
                                         <div class="thumb">
-                                            <img src="assets/images/team/team-06.jpg" alt="Testimonial Images">
+                                            <img src="{{asset('assets/images/team/6.png')}}" alt="Testimonial Images">
                                         </div>
                                     </div>
                                     <div class="rbt-team-details">
@@ -1692,7 +1692,7 @@
                                                 <span class="location">CO Miego, AD,USA</span>
                                             </span>
                                         </div>
-                                        <p>Histudy The standard chunk of Lorem Ipsum used since the 1500s is reproduced
+                                        <p>TruLearnix The standard chunk of Lorem Ipsum used since the 1500s is reproduced
                                             below for those interested.</p>
                                         <ul class="social-icon social-default mt--20 justify-content-start">
                                             <li><a href="https://www.facebook.com/">
@@ -1735,7 +1735,7 @@
                                     aria-selected="true">
                                     <div class="rbt-team-thumbnail">
                                         <div class="thumb">
-                                            <img src="assets/images/team/team-01.jpg" alt="Testimonial Images">
+                                            <img src="{{asset('assets/images/team/1.png')}}" alt="Testimonial Images">
                                         </div>
                                     </div>
                                 </a>
@@ -1746,7 +1746,7 @@
                                     role="tab" aria-controls="team-tab2" aria-selected="false">
                                     <div class="rbt-team-thumbnail">
                                         <div class="thumb">
-                                            <img src="assets/images/team/team-02.jpg" alt="Testimonial Images">
+                                            <img src="{{asset('assets/images/team/2.png')}}" alt="Testimonial Images">
                                         </div>
                                     </div>
                                 </a>
@@ -1757,7 +1757,7 @@
                                     role="tab" aria-controls="team-tab3" aria-selected="false">
                                     <div class="rbt-team-thumbnail">
                                         <div class="thumb">
-                                            <img src="assets/images/team/team-03.jpg" alt="Testimonial Images">
+                                            <img src="{{asset('assets/images/team/3.png')}}" alt="Testimonial Images">
                                         </div>
                                     </div>
                                 </a>
@@ -1767,7 +1767,7 @@
                                     role="tab" aria-controls="team-tab4" aria-selected="false">
                                     <div class="rbt-team-thumbnail">
                                         <div class="thumb">
-                                            <img src="assets/images/team/team-04.jpg" alt="Testimonial Images">
+                                            <img src="{{asset('assets/images/team/4.png')}}" alt="Testimonial Images">
                                         </div>
                                     </div>
                                 </a>
@@ -1778,7 +1778,7 @@
                                     role="tab" aria-controls="team-tab5" aria-selected="false">
                                     <div class="rbt-team-thumbnail">
                                         <div class="thumb">
-                                            <img src="assets/images/team/team-05.jpg" alt="Testimonial Images">
+                                            <img src="{{asset('assets/images/team/5.png')}}" alt="Testimonial Images">
                                         </div>
                                     </div>
                                 </a>
@@ -1789,7 +1789,7 @@
                                     role="tab" aria-controls="team-tab6" aria-selected="false">
                                     <div class="rbt-team-thumbnail">
                                         <div class="thumb">
-                                            <img src="assets/images/team/team-06.jpg" alt="Testimonial Images">
+                                            <img src="{{asset('assets/images/team/6.png')}}" alt="Testimonial Images">
                                         </div>
                                     </div>
                                 </a>
@@ -1800,10 +1800,10 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div> 
 
         <!-- Start Blog Style -->
-        {{-- <div class="rbt-rbt-blog-area rbt-section-gap bg-color-extra2">
+         <div class="rbt-rbt-blog-area rbt-section-gap bg-color-extra2">
             <div class="container">
                 <div class="row g-5 align-items-center mb--30">
                     <div class="col-lg-6 col-md-6 col-12">
@@ -1832,7 +1832,7 @@
                         <div class="rbt-card variation-02 height-330 rbt-hover">
                             <div class="rbt-card-img">
                                 <a href="blog-details.html">
-                                    <img src="assets/images/blog/blog-card-01.jpg" alt="Card image"> </a>
+                                    <img src="{{asset('assets/images/blog/1.jpg')}}" alt="Card image"> </a>
                             </div>
                             <div class="rbt-card-body">
                                 <h3 class="rbt-card-title"><a href="blog-details.html">React</a></h3>
@@ -1857,10 +1857,10 @@
                         <div class="rbt-card card-list variation-02 rbt-hover">
                             <div class="rbt-card-img">
                                 <a href="blog-details.html">
-                                    <img src="assets/images/blog/blog-card-02.jpg" alt="Card image"> </a>
+                                    <img src="{{asset('assets/images/blog/2.jpg')}}" alt="Card image"> </a>
                             </div>
                             <div class="rbt-card-body">
-                                <h5 class="rbt-card-title"><a href="blog-details.html">Why Is Education So Famous?</a>
+                                <h5 class="rbt-card-title"><a href="blog-details.html">Why Is TruLearnix So Famous?</a>
                                 </h5>
                                 <div class="rbt-card-bottom">
                                     <a class="transparent-button" href="blog-details.html">Read Article<i><svg
@@ -1879,11 +1879,11 @@
                         <div class="rbt-card card-list variation-02 rbt-hover mt--30">
                             <div class="rbt-card-img">
                                 <a href="blog-details.html">
-                                    <img src="assets/images/blog/blog-card-03.jpg" alt="Card image"> </a>
+                                    <img src="{{asset('assets/images/blog/3.jpg')}}" alt="Card image"> </a>
                             </div>
                             <div class="rbt-card-body">
                                 <h5 class="rbt-card-title"><a href="blog-details.html">Difficult Things About
-                                        Education.</a></h5>
+                                        TruLearnix.</a></h5>
                                 <div class="rbt-card-bottom">
                                     <a class="transparent-button" href="blog-details.html">Read Article<i><svg
                                                 width="17" height="12" xmlns="http://www.w3.org/2000/svg">
@@ -1901,10 +1901,10 @@
                         <div class="rbt-card card-list variation-02 rbt-hover mt--30">
                             <div class="rbt-card-img">
                                 <a href="blog-details.html">
-                                    <img src="assets/images/blog/blog-card-04.jpg" alt="Card image"> </a>
+                                    <img src="{{asset('assets/images/blog/4.jpg')}}" alt="Card image"> </a>
                             </div>
                             <div class="rbt-card-body">
-                                <h5 class="rbt-card-title"><a href="blog-details.html">Education Is So Famous, But
+                                <h5 class="rbt-card-title"><a href="blog-details.html">TruLearnix Is So Famous, But
                                         Why?</a></h5>
                                 <div class="rbt-card-bottom">
                                     <a class="transparent-button" href="blog-details.html">Read Article<i><svg
@@ -1922,16 +1922,16 @@
                 </div>
                 <!-- End Card Area -->
             </div>
-        </div> --}}
+        </div> 
         <!-- End Blog Style -->
 
-        {{-- <div class="rbt-newsletter-area newsletter-style-2 bg-color-primary rbt-section-gap">
+         <div class="rbt-newsletter-area newsletter-style-2 bg-color-primary rbt-section-gap">
             <div class="container">
                 <div class="row row--15 align-items-center">
                     <div class="col-lg-12">
                         <div class="inner text-center">
                             <div class="section-title text-center">
-                                <span class="subtitle bg-white-opacity">Get Latest Histudy Update</span>
+                                <span class="subtitle bg-white-opacity">Get Latest TruLearnix Update</span>
                                 <h2 class="title color-white"><strong>Subscribe</strong> Our Newsletter</h2>
                                 <p class="description color-white mt--20">Lorem ipsum, dolor sit amet consectetur
                                     adipisicing elit. Ipsam explicabo sit est eos earum reprehenderit inventore nam autem
@@ -1986,7 +1986,7 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div> 
 
 
 

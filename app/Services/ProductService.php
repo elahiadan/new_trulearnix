@@ -86,6 +86,6 @@ class ProductService
                 return null;
             }
         }
-        return json_encode($arr);
+        return $arr;
     }
 }

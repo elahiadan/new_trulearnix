@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/plugins/sal.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/css/plugins/feather.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/css/plugins/fontawesome.min.css') }}" />
-<link rel="stylesheet" href="{{ asset('assets/css/plugins/euclid-circulara.css') }}" />
+{{-- <link rel="stylesheet" href="{{ asset('assets/css/plugins/euclid-circulara.css') }}" /> --}}
 <link rel="stylesheet" href="{{ asset('assets/css/plugins/swiper.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/css/plugins/odometer.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/css/plugins/animation.css') }}" />
